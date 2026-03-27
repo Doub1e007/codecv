@@ -91,21 +91,6 @@ npm run dev  或 yarn run dev
 
 **A**: 目前服务部署在 `netlify serverless` 服务上，因为是国外服务器，访问容易出错，请多尝试几遍，当然你也可以使用本地导出 `PDF` 替换
 
-## 🙏 赞助
-
-如果你觉得这个项目对你有帮助，并且情况允许的话，可以给我一点点支持，总之非常感谢支持～
-
-<div style="display: flex; gap: 20px;">
-	<div style="text-align: center">
-		<p>WeChat</p>
-		<img style="width: 165px" src="./docs/wechat.jpg" alt="微信" />
-	</div>
-	<div style="text-align: center">
-		<p>Alipay</p>
-		<img style="width: 150px" src="./docs/alipay.jpg" alt="支付宝" />
-	</div>
-</div>
-
 ## License
 
 MIT © [Coderlei](./license)
