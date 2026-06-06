@@ -2,13 +2,7 @@
 
 CodeCV 是一个基于 Vue 3、Vite 和 Markdown 的简历制作工具。你可以在本地选择模板、编辑 Markdown 简历、实时预览排版，并导出 Markdown 或通过浏览器打印生成 PDF。
 
-本仓库已经在原项目基础上做了本地化调整：
-
-- 默认进入蓝色时间轴运维简历模板。
-- 删除空白简历模板入口。
-- 修复 Markdown 编辑器和富文本编辑器中中文输入法输入异常的问题。
-- 蓝色时间轴模板的示例个人信息已替换为虚构内容。
-- 模板左上角头像支持点击上传本地图片。
+本仓库已经在原项目基础上做了本地化调整
 
 原项目地址：[https://github.com/acmenlei/codecv](https://github.com/acmenlei/codecv)
 
@@ -72,7 +66,7 @@ cd D:\cv
 https://github.com/acmenlei/codecv.git
 ```
 
-注意：直接克隆上游仓库只能得到原作者版本，不会包含本地新增的蓝色时间轴运维模板、头像点击上传、中文输入修复和模板内容脱敏等改动。
+注意：直接克隆上游仓库只能得到原作者版本
 
 ### 2. 安装依赖
 
@@ -119,16 +113,14 @@ http://localhost:5173/#/editor?type=ops_blue_timeline
 打开编辑页后应能看到：
 
 - 左侧为 Markdown 编辑器。
-- 右侧为 A4 简历预览。
-- 默认模板为蓝色时间轴运维模板。
 - 左上角头像占位图可点击上传。
-- 在编辑器输入中文，例如 `成都`，预览和编辑区都应保持中文，不会变成 `cd`。
+
 
 ## 本地制作简历
 
 ### 选择模板
 
-首页会展示可用模板。当前本地版本保留蓝色时间轴运维模板，空白模板已移除。
+首页会展示可用模板。当前本地版本保留蓝色时间轴运维模板
 
 如果浏览器曾经缓存过旧内容，请打开编辑页后点击顶部工具栏中的“重置简历内容”按钮，或者清理浏览器 `localStorage` 后刷新页面。
 
@@ -378,23 +370,6 @@ Set-ExecutionPolicy RemoteSigned
 markdown-content-ops_blue_timeline
 ```
 
-### 中文输入变成拼音字母
-
-当前版本已经修复输入法组合输入问题。请确认你使用的是最新本地代码，并重新启动开发服务：
-
-```powershell
-npm run dev
-```
-
-### 点击头像没有反应
-
-请确认当前 Markdown 中仍然保留头像占位符：
-
-```markdown
-![个人头像](/resume-avatar-placeholder.svg)
-```
-
-如果删除了该行，上传逻辑无法判断替换位置。把这一行加回 Markdown 第一行后刷新预览即可。
 
 ### 导出 PDF 失败
 
@@ -402,15 +377,6 @@ npm run dev
 
 “导出 PDF”按钮依赖 `VITE_EXPORT_URL` 配置的服务端接口；没有接口时，本地会导出失败，这是预期行为。
 
-### npm run build 后自动打开 stats.html
-
-`vite.config.ts` 中启用了 `rollup-plugin-visualizer`：
-
-```ts
-visualizer({ open: true })
-```
-
-所以构建完成后可能会打开打包分析页面 `stats.html`。这不会影响项目运行。
 
 ## License
 
