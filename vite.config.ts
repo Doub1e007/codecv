@@ -60,6 +60,8 @@ export default ({ mode }) => {
       Components({
         resolvers: [ElementPlusResolver()]
       }),
+      viteCompressionPlugin,
+      viteImageminPlugin,
       eslint({ lintOnStart: true, cache: false }) // 打包以及启动项目开启eslint检查
     ],
     resolve: {
@@ -76,11 +78,7 @@ export default ({ mode }) => {
       rollupOptions: {
         // external: ['jspdf', 'axios', 'html2canvas'],
         // external: ['axios'],
-        plugins: [
-          /* globals,  */ viteCompressionPlugin,
-          viteImageminPlugin,
-          visualizer({ open: true })
-        ],
+        plugins: [visualizer({ open: true })],
         output: {
           chunkFileNames: 'js/[name]-[hash].js',
           entryFileNames: 'js/[name]-[hash].js',

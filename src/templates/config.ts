@@ -40,7 +40,7 @@ for (const [path, curModule] of moduleEntries) {
   ])
 }
 
-const match = (module: SubModule) => +(module.type.match(/^\d+/) as RegExpMatchArray)[0]
+const match = (module: SubModule) => +(module.type.match(/^\d+/)?.[0] || -1)
 templates.value.sort((a, b) => match(b) - match(a))
 
 export function getPrimaryBGColor(type: string) {

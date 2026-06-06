@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { nextTick, ref } from 'vue'
 import { useToggleEditorMode } from './hook'
 import { checkMouseSelect } from '../toolbar/hook'
 import { useResumeType } from '../../../hook'
@@ -9,6 +10,18 @@ defineProps<{ left: number }>()
 
 const { resumeType } = useResumeType()
 const { DOMTree, ObserverContent, editorStore } = useToggleEditorMode(resumeType.value)
+const isComposing = ref(false)
+
+function handleInput() {
+  if (!isComposing.value) {
+    ObserverContent()
+  }
+}
+
+function handleCompositionEnd() {
+  isComposing.value = false
+  nextTick(ObserverContent)
+}
 </script>
 
 <template>
@@ -19,7 +32,9 @@ const { DOMTree, ObserverContent, editorStore } = useToggleEditorMode(resumeType
   <div
     ref="DOMTree"
     @click="checkMouseSelect"
-    @input="ObserverContent"
+    @compositionstart="isComposing = true"
+    @compositionend="handleCompositionEnd"
+    @input="handleInput"
     class="writable-edit-mode"
     contenteditable
     spellcheck="false"

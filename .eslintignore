@@ -7,3 +7,5 @@ service
 **/*.scss
 **/*.css
 index.html
+auto-imports.d.ts
+components.d.ts

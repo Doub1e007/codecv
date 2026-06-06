@@ -62,9 +62,9 @@ export function useRenderHTML(resumeType: Ref<string>) {
 export function useResumeType() {
   const route = useRoute()
   //初始化也需要填上值 否则后续更新不一致会导致刷新死循环
-  const resumeType = ref(route.query.type ? String(route.query.type) : '10front_end')
+  const resumeType = ref(route.query.type ? String(route.query.type) : 'ops_blue_timeline')
   onActivated(() => {
-    resumeType.value = route.query.type ? String(route.query.type) : '10front_end'
+    resumeType.value = route.query.type ? String(route.query.type) : 'ops_blue_timeline'
   })
   return {
     resumeType

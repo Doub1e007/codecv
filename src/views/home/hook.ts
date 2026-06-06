@@ -37,7 +37,9 @@ export function usePresentation() {
     init = -30
   let timer: number
 
-  const presentationData = reactive(templates.value.slice(7, 12))
+  const presentationData = reactive(
+    templates.value.length > 7 ? templates.value.slice(7, 12) : templates.value.slice(0, 5)
+  )
   const presentationIndex = ref(0)
   const styleConfig = [
     {
@@ -62,16 +64,19 @@ export function usePresentation() {
     }
   ]
 
+  const activeStyleConfig = styleConfig.slice(0, presentationData.length)
+
   onMounted(() => {
+    if (presentationData.length <= 1) return
     timer = setInterval(() => {
-      presentationIndex.value = (presentationIndex.value + 1) % styleConfig.length
+      presentationIndex.value = (presentationIndex.value + 1) % activeStyleConfig.length
       presentationData.unshift(presentationData.pop() as (typeof presentationData)[0])
     }, 3000)
   })
-  onUnmounted(() => clearInterval(timer))
+  onUnmounted(() => timer && clearInterval(timer))
 
   return {
-    styleConfig,
+    styleConfig: activeStyleConfig,
     presentationData,
     presentationIndex
   }
