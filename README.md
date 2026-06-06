@@ -49,15 +49,9 @@ npm config set registry https://registry.npmmirror.com
 
 当前 README 描述的是这份已经做过本地化改造的项目。要精确复现当前版本，请使用当前目录，或者把当前目录提交到你自己的 Git 仓库后再克隆：
 
-```powershell
-git clone <你的-codecv-改造版仓库地址> codecv
+```powershel
+git clone https://github.com/Doub1e007/codecv.git
 cd codecv
-```
-
-如果你就在这台电脑上使用我已经改好的本地目录，直接进入项目目录：
-
-```powershell
-cd D:\cv
 ```
 
 原始上游仓库地址是：
